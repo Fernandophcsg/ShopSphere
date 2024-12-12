@@ -1,7 +1,8 @@
 import axios from "axios";
 import { Product } from "../types/Product";
 
-const API_URL = "https://dummyjson.com/products";
+const BASE_URL = "https://dummyjson.com";
+const API_URL = `${BASE_URL}/products`;
 
 export  const getProducts = async (limit: number = 30, skip: number = 0) => {
   try {
@@ -32,6 +33,15 @@ export async function getAllCategories() {
     throw new Error("Failed to get categories. Please try again later.");
   }
 }
+export async function getAllCategoryList() {
+  try {
+    const response = await axios.get(`${BASE_URL}/products/category-list`);
+    return response.data;
+  } catch (error) {
+    console.error("Error getting categories:", error);
+    throw new Error("Failed to get categories. Please try again later.");
+  }
+}
 
 export async function getProductsByCategory(category: string) {
   try {
@@ -42,6 +52,8 @@ export async function getProductsByCategory(category: string) {
     throw new Error(`Failed to get products in category ${category}. Please try again later.`);
   }
 }
+
+
 
 export async function addProduct(product: Product) {
   try {

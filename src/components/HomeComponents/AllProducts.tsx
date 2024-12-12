@@ -7,10 +7,11 @@ import { motion } from "framer-motion"
 import { icons } from "../../constants/constants"
 import { useLocation } from "react-router-dom"
 
-const AllProducts = ({productsquantity = 10}:{productsquantity:number}) => {
+const AllProducts = () => {
 
     const [products, setProducts] = useState<Product[]>([])
     const [loading, setLoading] = useState<boolean>(true)
+    const [productsquantity, setProductsQuantity] = useState<number>(10)
     const { pathname } = useLocation()
 
     useEffect(() => {
@@ -22,6 +23,10 @@ const AllProducts = ({productsquantity = 10}:{productsquantity:number}) => {
         })
     }, [productsquantity])
 
+    const handleProductQuantity = () => {
+        setProductsQuantity(productsquantity + 10)
+      }
+    
     if (loading) {
         return (
             <div className="w-full min-h-screen flex justify-center items-center">
@@ -29,25 +34,30 @@ const AllProducts = ({productsquantity = 10}:{productsquantity:number}) => {
             </div>
         )
     }
-
-  return (
-    <div className={`w-full h-auto min-h-[40rem] grid grid-cols-5 gap-5 overflow-hidden ${pathname !== "/" ? 'px-28 py-20':''}`}>
+    
+    return (
+        <>
+    <div className={`w-full h-auto min-h-[40rem] grid grid-cols-5 gap-5 overflow-hidden ${pathname !== "/" ? 'px-28':''}`}>
         {
             products.map((product, index) => (
                 <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.1*index, ease: "easeInOut", type: "spring" }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.1*index, ease: "easeInOut", type: "spring" }}
                 >
                 <ProductCard 
                     key={index} 
                     pid={product.id}
-                />
+                    />
                 </motion.div>
             ))
         }
     </div>
+    <div className="w-full flex py-10 justify-center">
+        <button className="w-max px-6 border-2 border-customGreen rounded-md hover:bg-customGreen hover:text-white transition-all duration-200 py-2" onClick={handleProductQuantity}>Load More</button>
+    </div>
+    </>
   )
 }
 

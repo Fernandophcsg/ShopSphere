@@ -11,7 +11,7 @@ import { getAllCategories } from "../services/APIs"
 
 const Homepage = () => {
   const [categories, setCategories] = useState<categoryProps[]>([])
-  const [productsquantity, setProductsQuantity] = useState<number>(10)
+  
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -25,9 +25,6 @@ const Homepage = () => {
     fetchCategories();
   }, [])
 
-  const handleProductQuantity = () => {
-    setProductsQuantity(productsquantity + 10)
-  }
   
   return (
     <div>
@@ -69,10 +66,8 @@ const Homepage = () => {
                   ))
                 }
                 </div>
-                <AllProducts productsquantity={productsquantity}/>
-                <div className="w-full flex py-10 justify-center">
-                  <button className="w-max px-6 border-2 border-customGreen rounded-md hover:bg-customGreen hover:text-white transition-all duration-200 py-2" onClick={handleProductQuantity}>Load More</button>
-                </div>
+                <AllProducts/>
+                
             </div>
         </h1>
     </div>

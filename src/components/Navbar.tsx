@@ -2,11 +2,9 @@ import { icons } from "../constants/constants"
 import { FaShoppingCart } from "react-icons/fa"
 import { BiSearch } from "react-icons/bi"
 import Dropdownbtn from "./Dropdownbtn"
-import {  useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 const Navbar = () => {
-    // const [search, setSearch] = useState<string>("All")
     const navigate = useNavigate();
 
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {

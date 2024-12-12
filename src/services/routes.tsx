@@ -19,7 +19,7 @@ export const routes = createBrowserRouter([
     },
     {
         path: "/products",
-        element: <Layout><AllProducts productsquantity={10}/></Layout>,
+        element: <Layout><AllProducts/></Layout>,
         errorElement: <Error />,
     },
     {
