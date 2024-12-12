@@ -23,6 +23,26 @@ export async function getProductById(id: number) {
   }
 }
 
+export async function getAllCategories() {
+  try {
+    const response = await axios.get(`${API_URL}/categories`);
+    return response.data;
+  } catch (error) {
+    console.error("Error getting categories:", error);
+    throw new Error("Failed to get categories. Please try again later.");
+  }
+}
+
+export async function getProductsByCategory(category: string) {
+  try {
+    const response = await axios.get(`${API_URL}/category/${category}`);
+    return response.data;
+  } catch (error) {
+    console.error(`Error getting products in category ${category}:`, error);
+    throw new Error(`Failed to get products in category ${category}. Please try again later.`);
+  }
+}
+
 export async function addProduct(product: Product) {
   try {
     const response = await axios.post(`${API_URL}/add`, product);

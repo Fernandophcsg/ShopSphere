@@ -2,8 +2,23 @@ import { icons } from "../constants/constants"
 import { FaShoppingCart } from "react-icons/fa"
 import { BiSearch } from "react-icons/bi"
 import Dropdownbtn from "./Dropdownbtn"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 const Navbar = () => {
+    const [search, setSearch] = useState<string>("All")
+    const navigate = useNavigate()
+
+    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value)
+    }
+
+    const handleSearchbarClick = () => {
+        navigate(`/products/${search}`)
+    }
+
+    
+
   return (
     <div className="w-full relative gap-10 bg-black h-20 flex items-center px-20 justify-between">
         <div className="flex items-center gap-1">
@@ -12,7 +27,7 @@ const Navbar = () => {
         </div>
         <div className="flex grow items-center justify-center ">
             <Dropdownbtn />
-            <input type="text" placeholder="Search Products here..." className="w-1/2  border text-white border-gray-500 bg-transparent p-2 " />
+            <input type="text" placeholder="Search Products here..." className="w-1/2  border text-white border-gray-500 bg-transparent p-2"  onChange={(e)=>handleSearchChange(e)} />
             <div className="bg-customGreen p-2 border border-gray-500 cursor-pointer rounded-tr-md rounded-br-md">
                 <BiSearch className="text-white text-2xl " />
             </div>
