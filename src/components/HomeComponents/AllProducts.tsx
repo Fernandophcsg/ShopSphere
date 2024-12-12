@@ -5,11 +5,13 @@ import { getProducts } from "../../services/APIs"
 import { Product } from "../../types/Product"
 import { motion } from "framer-motion"
 import { icons } from "../../constants/constants"
+import { useLocation } from "react-router-dom"
 
 const AllProducts = ({productsquantity = 10}:{productsquantity:number}) => {
 
     const [products, setProducts] = useState<Product[]>([])
     const [loading, setLoading] = useState<boolean>(true)
+    const { pathname } = useLocation()
 
     useEffect(() => {
         getProducts(productsquantity, 0).then((res) => {
@@ -29,7 +31,7 @@ const AllProducts = ({productsquantity = 10}:{productsquantity:number}) => {
     }
 
   return (
-    <div className="w-full h-auto min-h-[40rem] grid grid-cols-5 gap-5 overflow-hidden ">
+    <div className={`w-full h-auto min-h-[40rem] grid grid-cols-5 gap-5 overflow-hidden ${pathname !== "/" ? 'px-28 py-20':''}`}>
         {
             products.map((product, index) => (
                 <motion.div

@@ -4,6 +4,7 @@ import { Error } from "../pages/Error";
 import Layout from "../components/Layout";
 import ProductDetails from "../pages/ProductDetails";
 import ProductsOfCategories from "../pages/ProductsOfCategories";
+import AllProducts from "../components/HomeComponents/AllProducts";
 
 export const routes = createBrowserRouter([
     {
@@ -14,6 +15,11 @@ export const routes = createBrowserRouter([
     {
         path: "/product/:pid",
         element: <Layout><ProductDetails/></Layout>,
+        errorElement: <Error />,
+    },
+    {
+        path: "/products",
+        element: <Layout><AllProducts productsquantity={10}/></Layout>,
         errorElement: <Error />,
     },
     {

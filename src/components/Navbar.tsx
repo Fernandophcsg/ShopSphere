@@ -2,26 +2,21 @@ import { icons } from "../constants/constants"
 import { FaShoppingCart } from "react-icons/fa"
 import { BiSearch } from "react-icons/bi"
 import Dropdownbtn from "./Dropdownbtn"
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 const Navbar = () => {
-    const [search, setSearch] = useState<string>("All")
-    const navigate = useNavigate()
+    // const [search, setSearch] = useState<string>("All")
+    const navigate = useNavigate();
 
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearch(e.target.value)
+        navigate(`/products/${e.target.value}`)
     }
 
-    const handleSearchbarClick = () => {
-        navigate(`/products/${search}`)
-    }
-
-    
 
   return (
     <div className="w-full relative gap-10 bg-black h-20 flex items-center px-20 justify-between">
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 cursor-pointer" onClick={()=>navigate('/')}>
             <img src={icons.logo} alt="logo" className="w-10 aspect-square" />
             <p className="text-white text-xl uppercase">ShopSphere</p>
         </div>
