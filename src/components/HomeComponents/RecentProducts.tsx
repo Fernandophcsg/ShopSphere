@@ -35,6 +35,7 @@ const RecentProducts = () => {
         {
             products.map((product, index) => (
               <motion.div
+                    key={index}
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}

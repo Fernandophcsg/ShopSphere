@@ -3,3 +3,7 @@ export interface categoryProps {
     name: string;
     url: string;
 }
+
+export interface HandleClickCategory {
+    (slug: string): void;
+  }

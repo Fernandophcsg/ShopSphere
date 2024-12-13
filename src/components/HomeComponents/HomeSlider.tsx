@@ -30,21 +30,21 @@ const HomeSlider = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
             transition={{ duration: 1 }}
-            key= "slider1"
+            key= "slider1.1"
             className="text-slate-100 w-max">01Oct - 31Oct</motion.h2>
             <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
             transition={{ duration: 1, delay: 0.5 }}
-            key= "slider1"
+            key= "slider1.2"
             className="text-5xl mb-2 font-bold font-sans text-slate-100 w-max" >#FASHION DAY</motion.h1>
              <motion.h2
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
             transition={{ duration: 1, delay: 1 }}
-            key= "slider1"
+            key= "slider1.3"
             className="text-slate-100 w-max">Descover fashion that suits to your style</motion.h2>
           </div>
         </motion.div>
@@ -65,21 +65,21 @@ const HomeSlider = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 1 }}
-            key= "slider2"
+            key= "slider2.1"
             className="text-slate-900 w-max">01Oct - 31Oct</motion.h2>
             <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
             transition={{ duration: 1, delay: 0.5 }}
-            key= "slider2"
+            key= "slider2.2"
             className="text-5xl mb-2 font-bold font-sans text-slate-500 w-max" >#FASHION DAY</motion.h1>
             <motion.h2
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
             transition={{ duration: 1, delay: 1 }}
-            key= "slider2"
+            key= "slider2.3"
             className="text-slate-900 w-max">Descover fashion that suits to your style</motion.h2>
           </div>
         </motion.div>
@@ -100,21 +100,21 @@ const HomeSlider = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
             transition={{ duration: 1 }}
-            key= "slider3"
+            key= "slider3.1"
             className="text-slate-900 w-max">01Oct - 31Oct</motion.h2>
             <motion.h1
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 1, delay: 0.5 }}
-            key= "slider3"
+            key= "slider3.2"
             className="text-5xl mb-2 font-bold font-sans text-slate-900 w-max" >#FASHION DAY</motion.h1>
             <motion.h2
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
             transition={{ duration: 1, delay: 1 }}
-            key= "slider3"
+            key= "slider3.3"
             className="text-slate-900 w-max">Descover fashion that suits to your style</motion.h2>
           </div>
         </motion.div>

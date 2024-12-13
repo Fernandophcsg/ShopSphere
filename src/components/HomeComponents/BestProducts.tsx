@@ -12,7 +12,7 @@ const BestProducts = () => {
    const [loading, setLoading] = useState<boolean>(true)
   
     useEffect(() => {
-        getProducts(5, 0).then((res) => {
+        getProducts(5, 80).then((res) => {
             setProducts(res.data.products)
             setLoading(false)
         }).then((err) => {
@@ -35,6 +35,7 @@ const BestProducts = () => {
         {
             products.map((product, index) => (
               <motion.div
+                    key={index}
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
