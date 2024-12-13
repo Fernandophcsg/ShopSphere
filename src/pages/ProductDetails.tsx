@@ -77,7 +77,7 @@ const ProductDetails = () => {
     useEffect(() => {
       const interval = setInterval(() => {
         if(product.images?.length > 1){
-          setImageIndex((imageIndex) => (imageIndex + 1) % 3)
+          setImageIndex((imageIndex) => (imageIndex + 1) % product.images?.length)
         }
       }, 5000)
   
@@ -126,7 +126,7 @@ const ProductDetails = () => {
             <div className="w-full h-auto flex gap-2 ">
               {
                 product.images?.map((image, index) => (
-                  <img src={image} alt={product.title} key={index} className="w-20 aspect-square bg-slate-200 object-cover rounded-md cursor-pointer" 
+                  <img src={image} alt={product.title} key={index} className={`w-20 aspect-square bg-slate-200 object-cover rounded-md cursor-pointer ${index === imageIndex ? 'border-2 border-customGreen' : ''} ${product.images?.length > 3 ? 'grow' : ''}`} 
                   onClick={()=>setImageIndex(index)}
                   />
                 ))

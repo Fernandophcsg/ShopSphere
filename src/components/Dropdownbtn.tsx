@@ -77,7 +77,7 @@ const Dropdownbtn = () => {
           {categoryList.map((item, index) => (
             <li
               key={index}
-              className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100"
+              className="cursor-pointer capitalize text-slate-800 flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100"
               onClick={handleListItemClick}
             >
               {item}

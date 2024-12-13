@@ -55,10 +55,14 @@ const CartProvider = ({children}:{children:React.ReactNode}) => {
     };
 
     const increaseQuantity = (pid: number) => {
-        setCartItems(cartItems.map((item) => item.id === pid ? {...item, quantity: item.quantity + 1} : item));
+        setCartItems(cartItems.map((item) => (item.id === pid && item.quantity < 8) ? {...item, quantity: item.quantity + 1} : item));
     };
 
     const decreaseQuantity = (pid: number) => {
+        if(cartItems.find((item) => item.id === pid)?.quantity === 1){
+            removeFromCart(pid);
+            return;
+        }
         setCartItems(cartItems.map((item) => item.id === pid ? {...item, quantity: item.quantity - 1} : item));
     };
 

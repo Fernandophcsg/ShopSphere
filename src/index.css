@@ -11,6 +11,6 @@ ul::-webkit-scrollbar {
   color: aqua;
 }
 ul::-webkit-scrollbar-thumb {
-  background-color: rebeccapurple;
+  background-color: #1A775B;
   border-radius: 10px;  
 }
