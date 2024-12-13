@@ -1,7 +1,6 @@
 import logo from '../assets/icons/logobg.png';
 import slider1 from '../assets/images/slider1.png';
 import loading from '../assets/icons/loading.svg';
-import image from '../assets/images/image.png';
 
 export const icons = {
     logo,
@@ -10,7 +9,7 @@ export const icons = {
 
 export const images = {
     slider1,
-    image
+
 }
 
 export const colors = ["#2A6279", "#2A7579", "#328559", "#2F4F82", "#3E3586", "#713588", "#357F83"]

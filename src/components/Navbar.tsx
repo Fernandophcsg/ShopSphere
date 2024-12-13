@@ -1,15 +1,22 @@
 import { icons } from "../constants/constants"
-import { FaShoppingCart } from "react-icons/fa"
 import { BiSearch } from "react-icons/bi"
 import Dropdownbtn from "./Dropdownbtn"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
+import { BsBag } from "react-icons/bs"
+import { useEffect, useState } from "react"
 
 const Navbar = () => {
     const navigate = useNavigate();
+    const [showBag, setShowBag] = useState(false)
+    const { pathname} = useLocation()
 
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         navigate(`/products/${e.target.value}`)
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [pathname])
 
 
   return (
@@ -26,8 +33,8 @@ const Navbar = () => {
             </div>
         </div>
         <div className="flex items-center gap-4">
-            <FaShoppingCart className="text-white text-3xl" />
-            <button className="text-white w-max cursor-pointer bg-customGreen px-5 py-2 rounded-md">login</button>
+            <BsBag className="text-white text-3xl cursor-pointer"/>
+            <button className="text-white w-max cursor-pointer bg-customGreen px-8 py-2 rounded-md">login</button>
         </div>
     </div>
   )
