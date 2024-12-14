@@ -3,16 +3,30 @@ import { BiSearch } from "react-icons/bi"
 import Dropdownbtn from "./Dropdownbtn"
 import { useLocation, useNavigate } from "react-router-dom"
 import { BsBag } from "react-icons/bs"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import CartDrawer from "./CartDrawer"
+import LoginModal from "./LoginModal"
+import { AvatarWithUserDropdown } from "./ProfileMenuIcon"
+import { AuthContext } from "../Contexts/AuthContext"
 
 const Navbar = () => {
     const navigate = useNavigate();
     const { pathname} = useLocation()
+    
     const [openRight, setOpenRight] = useState(false);
+    const [openModal, setOpenModal] = useState(false);
     const openDrawerRight = () => setOpenRight(true);
     const closeDrawerRight = () => setOpenRight(false);
+    const isUserLoggedin = localStorage.getItem('user')
+    const { isLoggedin, setIsLoggedin } = useContext(AuthContext)
 
+    useEffect(() => {
+        if(isUserLoggedin){
+            setIsLoggedin(true)
+        }else{
+            setIsLoggedin(false)
+        }
+    }, [isUserLoggedin])
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         navigate(`/products/${e.target.value}`)
     }
@@ -21,6 +35,9 @@ const Navbar = () => {
         window.scrollTo(0, 0)
     }, [pathname])
 
+    const handleOpen = () => {
+        setOpenModal(!openModal)
+    }
 
   return (
     <>
@@ -38,11 +55,21 @@ const Navbar = () => {
         </div>
         <div className="flex items-center gap-4">
             <BsBag className="text-white text-3xl cursor-pointer" onClick={openDrawerRight}/>
-            <button className="text-white w-max cursor-pointer bg-customGreen px-8 py-2 rounded-md">login</button>
+            {
+                isLoggedin === false ? (
+                <button className="text-white w-max cursor-pointer bg-customGreen px-8 py-2 rounded-md"
+                onClick={handleOpen}
+                >login</button>
+                ):<AvatarWithUserDropdown />
+            }
         </div>
+
     </div>
     <div className="fixed top-0 h-full right-0 bg-white z-50">
         <CartDrawer openRight={openRight} closeDrawerRight={closeDrawerRight} />
+    </div>
+    <div className="fixed top-0 h-full right-0 bg-trasparent z-50">
+        <LoginModal open={openModal} handleOpen={handleOpen} />
     </div>
     </>
   )

@@ -190,7 +190,7 @@ const ProductDetails = () => {
                 <p className="text-center font-bold">{quantity}</p>
                 <button className="w-1/3 aspect-square bg-slate-200 text-black flex items-center justify-center font-bold rounded-full"
                 onClick={()=>{
-                  if(quantity < 8 && quantity < product.stock){
+                  if(quantity < product.minimumOrderQuantity && quantity < product.stock){
                     setQuantity(quantity + 1)
                   }
                 }}
