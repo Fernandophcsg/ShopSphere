@@ -109,9 +109,9 @@ export function AddProductDialog({ open, handleOpen }:{open:boolean, handleOpen:
               labelProps={{
                 className: "hidden",
               }}
-        onPointerEnterCapture={() => {}}
-        onPointerLeaveCapture={() => {}}
-            >
+              onPointerEnterCapture={() => {}}
+              onPointerLeaveCapture={() => {}}
+              >
               <Option>Clothing</Option>
               <Option>Fashion</Option>
               <Option>Watches</Option>

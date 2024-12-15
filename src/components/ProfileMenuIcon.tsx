@@ -79,6 +79,7 @@ export function AvatarWithUserDropdown() {
               onClick={()=>{
                 if(label === "Sign Out"){
                   localStorage.removeItem("user")
+                  sessionStorage.removeItem("user")
                   window.location.reload()
                   closeMenu()
                 }

@@ -8,6 +8,7 @@ import CategoryCard from "../components/CategoryCard"
 import { useEffect, useState } from "react"
 import { categoryProps } from "../types/Category"
 import { getAllCategories } from "../services/APIs"
+import Categories from "../components/HomeComponents/Categories"
 
 const Homepage = () => {
   const [categories, setCategories] = useState<categoryProps[]>([])
@@ -34,27 +35,12 @@ const Homepage = () => {
                 <div className="w-full pt-[calc(18rem-11rem/3)] relative flex gap-3 pb-5">
                     <div className="bg-white w-1/2 h-auto rounded-xl shadow-lg py-3 px-5">
                       <h1 className="text-xl mb-2 font-semibold font-sans">Categories</h1>
-                      <div className="grid grid-cols-5 gap-2">
-                        {
-                          categories.slice(0,5).map((category, index) => (
-                            <CategoryCard key={index} 
-                              category={category as categoryProps}
-                            />
-                          ))
-                        }
-                      </div>
+                      <Categories categories={categories}/>
+                    
                     </div>
                     <div className="bg-white w-1/2  h-auto rounded-xl shadow-lg py-3 px-5">
                     <h1 className="text-xl mb-2 font-semibold font-sans">Categories</h1>
-                      <div className="grid grid-cols-5 gap-2">
-                      {
-                          categories.slice(0,5).map((category, index) => (
-                            <CategoryCard key={index} 
-                              category={category as categoryProps}
-                            />
-                          ))
-                        }
-                      </div>
+                    <Categories categories={categories}/>
                     </div>
                 </div>
                 <RecentProducts />

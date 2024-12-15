@@ -8,7 +8,7 @@ import {
     Input,
     Checkbox,
 } from "@material-tailwind/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface LoginModalProps {
     open: boolean;
@@ -20,6 +20,15 @@ const LoginModal: React.FC<LoginModalProps> = ({ open, handleOpen }) => {
         email: "",
         password: "",
     });
+    const [rememberMe, setRememberMe] = useState(false);
+
+    const handleCheckbox = () => {
+        setRememberMe(!rememberMe);
+    }
+
+    useEffect(() => {
+        console.log(rememberMe);
+    }),[rememberMe]
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
@@ -30,8 +39,14 @@ const LoginModal: React.FC<LoginModalProps> = ({ open, handleOpen }) => {
 
     const handleSubmit = () => {
         console.log(formData);
-        localStorage.setItem("user", JSON.stringify(formData.email));
+        if (rememberMe === false) {
+            sessionStorage.setItem("user", formData.email);
             handleOpen();
+        }
+        else{
+            localStorage.setItem("user", formData.email);
+            handleOpen();
+        }
     };
     
     return (
@@ -121,6 +136,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ open, handleOpen }) => {
                                 onPointerEnterCapture={() => {}} 
                                 onPointerLeaveCapture={() => {}} 
                                 crossOrigin=""
+                                onClick={handleCheckbox}
                             />
                         </div>
                     </CardBody>

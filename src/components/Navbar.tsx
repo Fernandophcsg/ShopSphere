@@ -17,7 +17,7 @@ const Navbar = () => {
     const [openModal, setOpenModal] = useState(false);
     const openDrawerRight = () => setOpenRight(true);
     const closeDrawerRight = () => setOpenRight(false);
-    const isUserLoggedin = localStorage.getItem('user')
+    const isUserLoggedin = localStorage.getItem('user') || sessionStorage.getItem('user')
     const { isLoggedin, setIsLoggedin } = useContext(AuthContext)
 
     useEffect(() => {
