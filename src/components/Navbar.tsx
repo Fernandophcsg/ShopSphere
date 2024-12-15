@@ -56,11 +56,13 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
             <BsBag className="text-white text-3xl cursor-pointer" onClick={openDrawerRight}/>
             {
-                isLoggedin === false ? (
+                isUserLoggedin  ? 
+                <AvatarWithUserDropdown /> :
+                <>
                 <button className="text-white w-max cursor-pointer bg-customGreen px-8 py-2 rounded-md"
-                onClick={handleOpen}
-                >login</button>
-                ):<AvatarWithUserDropdown />
+                onClick={handleOpen}>login</button>
+                </>
+                
             }
         </div>
 
