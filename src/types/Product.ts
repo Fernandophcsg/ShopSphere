@@ -19,7 +19,7 @@ export interface Product {
   warrantyInformation: string;
   shippingInformation: string;
   availabilityStatus: string;
-  reviews: Review[];
+  reviews: ReviewProps[];
   returnPolicy: string;
   minimumOrderQuantity: number;
   meta: {
@@ -32,7 +32,7 @@ export interface Product {
   thumbnail: string;
 }
 
-interface Review {
+interface ReviewProps {
   rating: number;
   comment: string;
   date: string;

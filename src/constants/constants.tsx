@@ -9,7 +9,28 @@ export const icons = {
 
 export const images = {
     slider1,
+}
 
+export const sliderSettings = {
+    slidesPerView: 5,
+    spaceBetween: 10,
+    breakpoints: {
+       280: {
+            slidesPerView: 1
+       },
+        480: {
+            slidesPerView: 2
+        },
+       600: {
+            slidesPerView: 2
+       },
+        768: {
+            slidesPerView: 4
+        },
+        1200: {
+            slidesPerView: 5
+        }
+        }
 }
 
 export const colors = ["#2A6279", "#2A7579", "#328559", "#2F4F82", "#3E3586", "#713588", "#357F83"]
