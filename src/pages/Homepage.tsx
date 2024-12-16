@@ -31,7 +31,7 @@ const Homepage = () => {
   return (
     <div>
         <h1 className="text-black">
-            <div className="relative px-28 h-auto bg-gray-100 pb-3 flex flex-col">
+            <div className="relative px-10 md:px-16 lg:px-28 h-auto bg-gray-100 pb-3 flex flex-col">
                 <HomeSlider />
                 <div className="w-full pt-[calc(18rem-11rem/3)] relative flex gap-3 pb-5">
                     {

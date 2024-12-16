@@ -42,7 +42,7 @@ const AllProducts = () => {
     
     return (
         <>
-    <div className={`w-full h-auto min-h-[40rem] grid grid-cols-5 gap-5 overflow-hidden ${pathname !== "/" ? 'px-28 pt-12':''}`}>
+    <div className={`w-full h-auto min-h-[40rem] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-5 overflow-hidden ${pathname !== "/" ? 'px-28 pt-12':''}`}>
         {
             products.map((product, index) => (
                 <motion.div

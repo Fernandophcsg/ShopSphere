@@ -96,17 +96,16 @@ const BestProducts = () => {
                 onSwiper={setSwiperInstance} className="grid grid-cols-5 gap-5 w-full">
         {
             products.map((product, index) => (
-                <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.1*index, ease: "easeInOut", type: "spring" }}
-                >
-                    <SwiperSlide>
+                <SwiperSlide key={index}>
+                    <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.1*index, ease: "easeInOut", type: "spring" }}
+                    >
                         <ProductCard pid={product.id}/>
-                    </SwiperSlide>
-                </motion.div>
+                    </motion.div>
+                </SwiperSlide>
             ))
         }
         </Swiper>

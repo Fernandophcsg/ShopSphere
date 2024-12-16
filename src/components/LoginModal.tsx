@@ -8,7 +8,7 @@ import {
     Input,
     Checkbox,
 } from "@material-tailwind/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface LoginModalProps {
     open: boolean;
