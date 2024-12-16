@@ -16,7 +16,6 @@ const ProductsOfCategories = () => {
             try {
                 const response = await getProductsByCategory(category as string);
                 setProducts(response.products);
-                console.log(response.products);
                 setLoading(false);
             } catch (error) {
                 console.error("Error getting products:", error);

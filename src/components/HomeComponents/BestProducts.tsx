@@ -12,12 +12,16 @@ const BestProducts = () => {
    const [loading, setLoading] = useState<boolean>(true)
   
     useEffect(() => {
-        getProducts(5, 80).then((res) => {
-            setProducts(res.data.products)
-            setLoading(false)
-        }).then((err) => {
-            console.error(err)
-        })
+        const fetchProducts = async () => {
+            try {
+                const response = await getProducts(5, 80);
+                setProducts(response.data.products);
+                setLoading(false);
+            } catch (error) {
+                console.error("Error getting products:", error);
+            }
+        }
+        fetchProducts();
     }, [])
 
     if (loading) {

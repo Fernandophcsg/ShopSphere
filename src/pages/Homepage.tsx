@@ -4,7 +4,6 @@ import RecentProducts from "../components/HomeComponents/RecentProducts"
 import HomeSlider from "../components/HomeComponents/HomeSlider"
 import TypicalButton from "../components/TypicalButton"
 import { colors } from "../constants/constants"
-import CategoryCard from "../components/CategoryCard"
 import { useEffect, useState } from "react"
 import { categoryProps } from "../types/Category"
 import { getAllCategories } from "../services/APIs"
@@ -36,11 +35,11 @@ const Homepage = () => {
                     <div className="bg-white w-1/2 h-auto rounded-xl shadow-lg py-3 px-5">
                       <h1 className="text-xl mb-2 font-semibold font-sans">Categories</h1>
                       <Categories categories={categories}/>
-                    
                     </div>
+
                     <div className="bg-white w-1/2  h-auto rounded-xl shadow-lg py-3 px-5">
-                    <h1 className="text-xl mb-2 font-semibold font-sans">Categories</h1>
-                    <Categories categories={categories}/>
+                      <h1 className="text-xl mb-2 font-semibold font-sans">Categories</h1>
+                      <Categories categories={categories}/>
                     </div>
                 </div>
                 <RecentProducts />

@@ -15,12 +15,17 @@ const AllProducts = () => {
     const { pathname } = useLocation()
 
     useEffect(() => {
-        getProducts(productsquantity, 0).then((res) => {
-            setProducts(res.data.products)
-            setLoading(false)
-        }).then((err) => {
-            console.error(err)
-        })
+        const fetchProducts = async () => {
+            try {
+                const response = await getProducts(productsquantity, 0);
+                setProducts(response.data.products);
+                setLoading(false);
+            }
+            catch (error) {
+                console.error("Error getting products:", error);
+            }
+        }
+        fetchProducts();
     }, [productsquantity])
 
     const handleProductQuantity = () => {

@@ -11,12 +11,16 @@ const ProductCard:React.FC<ProductCardProps> = ({ pid }) => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    getProductById(pid).then((res) => {
-      setProduct(res.data)
-      setLoading(false)
-    }).then((err) => {
-      console.error(err)
-    })
+    const fetchProduct = async () => {
+      try {
+        const response = await getProductById(pid);
+        setProduct(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error getting product:", error);
+      }
+    }
+    fetchProduct()
   }, [pid])
 
   const handleNavigate = (pid:number) => () => {

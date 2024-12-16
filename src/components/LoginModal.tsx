@@ -26,9 +26,6 @@ const LoginModal: React.FC<LoginModalProps> = ({ open, handleOpen }) => {
         setRememberMe(!rememberMe);
     }
 
-    useEffect(() => {
-        console.log(rememberMe);
-    }),[rememberMe]
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
@@ -38,7 +35,6 @@ const LoginModal: React.FC<LoginModalProps> = ({ open, handleOpen }) => {
     };
 
     const handleSubmit = () => {
-        console.log(formData);
         if (rememberMe === false) {
             sessionStorage.setItem("user", formData.email);
             handleOpen();

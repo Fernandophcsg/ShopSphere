@@ -82,9 +82,6 @@ const CartProvider = ({children}:{children:React.ReactNode}) => {
         }
     }, []);
 
-    useEffect(() => {
-        console.log(cartItems)
-    }, [cartItems]);
     
     useEffect(() => {
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
