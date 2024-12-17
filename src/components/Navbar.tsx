@@ -67,7 +67,7 @@ const Navbar = () => {
         </div>
 
     </div>
-    <div className="fixed top-0 h-full right-0 bg-white z-50">
+    <div className="fixed top-0 h-full right-0 bg-white z-[200]">
         <CartDrawer openRight={openRight} closeDrawerRight={closeDrawerRight} />
     </div>
     <div className="fixed top-0 h-full right-0 bg-trasparent z-50">
