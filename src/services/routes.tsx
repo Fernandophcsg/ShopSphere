@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import ProductDetails from "../pages/ProductDetails";
 import ProductsOfCategories from "../pages/ProductsOfCategories";
 import AllProducts from "../components/HomeComponents/AllProducts";
+import MyProfile from "../pages/MyProfile";
 
 export const routes = createBrowserRouter([
     {
@@ -25,6 +26,11 @@ export const routes = createBrowserRouter([
     {
         path: "/products/:category",
         element: <Layout><ProductsOfCategories/></Layout>,
+        errorElement: <Error />,
+    },
+    {
+        path: "/profile",
+        element: <Layout><MyProfile/></Layout>,
         errorElement: <Error />,
     }
 ]);

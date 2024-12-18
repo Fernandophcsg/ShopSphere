@@ -159,7 +159,7 @@ const ProductDetails = () => {
 
         <div className="w-[25%] h-auto  flex flex-col gap-2 px-3">
           <div className="w-full aspect-[4/1] justify-between bg-customGreen rounded-xl flex pl-4 p-3">
-            <div>
+            <div className="flex flex-col gap-2 items-baseline h-full">
               <h1 className="text-white font-semibold text-xl">25% OFF</h1>
               <p className="text-white/80 text-[10px]">If order over <span className="text-white text-[10px]">$120</span></p>
             </div>

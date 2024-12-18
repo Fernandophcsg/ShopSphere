@@ -15,12 +15,16 @@ import {
   PowerIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
+import { path } from "framer-motion/client";
+
  
 
 const profileMenuItems = [
   {
     label: "My Profile",
     icon: UserCircleIcon,
+    path: "/profile",
   },
   {
     label: "Edit Profile",
@@ -71,9 +75,10 @@ export function AvatarWithUserDropdown() {
         </Button>
       </MenuHandler>
       <MenuList className="p-1" placeholder="" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
-        {profileMenuItems.map(({ label, icon }, key) => {
+        {profileMenuItems.map(({ label, icon,path }, key) => {
           const isLastItem = key === profileMenuItems.length - 1;
           return (
+            <Link to={path ? path: "" } className="w-full h-full" >
             <MenuItem
               key={label}
               onClick={()=>{
@@ -108,10 +113,11 @@ export function AvatarWithUserDropdown() {
                 placeholder=""
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
-              >
+                >
                 {label}
               </Typography>
             </MenuItem>
+                </Link>
           );
         })}
       </MenuList>
