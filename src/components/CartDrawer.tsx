@@ -89,7 +89,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({
                       onPointerEnterCapture={() => {}}
                       onPointerLeaveCapture={() => {}}
                     >
-                      {item.name.split(" ").slice(0, 2).join(" ")}
+                      {item?.name.split(" ").slice(0, 2).join(" ")}
                     </Typography>
                     <Typography
                       variant="h6"
