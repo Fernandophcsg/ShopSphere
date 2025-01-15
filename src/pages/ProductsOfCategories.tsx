@@ -10,7 +10,7 @@ const ProductsOfCategories = () => {
     const { category = "" } = useParams<{ category: string }>()
     const [products, setProducts] = useState<Product[]>([])
     const [loading, setLoading] = useState<boolean>(true)
-    const [productsquantity, setProductsQuantity] = useState<number>(10)
+    const [productsquantity, setProductsQuantity] = useState<number>(100)
 
     useEffect(() => {
         const fetchProducts = async () => {
