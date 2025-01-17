@@ -32,7 +32,7 @@ export const CategoryCard = ({category}:{category:categoryProps}) => {
       <div className="w-full h-2/3 overflow-hidden flex items-center justify-center">
         <img src={findImage} alt={category.slug} width={45}  />
       </div>
-        <h1 className="text-center text-sm font-semibold py-2">{category.name.split(" ")[0] }</h1>
+        <h1 className="text-center text-sm font-semibold py-2">{category?.name.split(" ")[0] }</h1>
     </div>
   )
 }
