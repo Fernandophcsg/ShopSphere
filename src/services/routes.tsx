@@ -33,4 +33,6 @@ export const routes = createBrowserRouter([
         element: <Layout><MyProfile/></Layout>,
         errorElement: <Error />,
     }
-]);
+],
+{ basename: "/ShopSphere" }
+);
