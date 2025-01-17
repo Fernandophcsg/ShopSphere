@@ -8,10 +8,12 @@ import CartDrawer from "./CartDrawer"
 import LoginModal from "./LoginModal"
 import { AvatarWithUserDropdown } from "./ProfileMenuIcon"
 import { AuthContext } from "../Contexts/AuthContext"
+import { CartContext } from "../Contexts/CartContext"
 
 const Navbar = () => {
     const navigate = useNavigate();
     const { pathname} = useLocation()
+    const { cartItems } = useContext(CartContext)
     
     const [openRight, setOpenRight] = useState(false);
     const [openModal, setOpenModal] = useState(false);
@@ -54,7 +56,15 @@ const Navbar = () => {
             </div>
         </div>
         <div className="flex items-center gap-4">
+            <div className="relative">
             <BsBag className="text-white text-3xl cursor-pointer" onClick={openDrawerRight}/>
+            {
+                cartItems.length > 0 && 
+                <div className="absolute w-5 aspect-square text-[8px] flex items-center justify-center -top-2 -right-2 bg-red-500 text-white rounded-full p-1">
+                    {cartItems.length}
+                </div>
+            }
+            </div>
             {
                 isUserLoggedin  ? 
                 <AvatarWithUserDropdown /> :
