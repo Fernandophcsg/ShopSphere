@@ -60,7 +60,8 @@ const ProductDetails = () => {
 
     const handleAddtoCart = () => {
       addToCart(cartProductDetails);
-      toast.success(<>
+      toast.success(
+      <>
         <div className="flex items-center gap-2">
           <img src={cartProductDetails.image} alt="" className="w-10 h-10" />
           <div>
@@ -68,7 +69,8 @@ const ProductDetails = () => {
             <p className="text-gray-500"> {cartProductDetails.name} x {cartProductDetails.quantity} </p>
           </div>
         </div>
-      </>);
+      </>
+      );
     }
 
 
@@ -154,6 +156,35 @@ const ProductDetails = () => {
                 ))
               }
             </div>
+          </div>
+          <div className="w-full flex pt-5 gap-3">
+            <div className="text-lg text-gray-600 ">About item</div>
+            <div className="text-lg text-gray-600">Reviews</div>
+          </div>
+          <div className="w-full h-[1px] bg-gray-400" />
+          <div className="w-full h-auto flex gap-5  p-2 ">
+              <div className="w-1/2">
+                <div className="text-gray-700 font-medium">Brand: <span className="text-black">{product.brand}</span></div>
+                <div className="text-gray-700 font-medium">Category: <span className="text-black">{product.category}</span></div>
+                <div className="text-gray-700 font-medium">Condition: <span className="text-black">{product.warrantyInformation}</span></div>
+              </div>
+              <div className="w-1/2">
+                <div className="text-gray-700 font-medium">Colour: <span className="text-black">{product.rating}</span></div>
+                <div className="text-gray-700 font-medium">Material: <span className="text-black">{product.discountPercentage}</span></div>
+                <div className="text-gray-700 font-medium">Weight: <span className="text-black">{product.weight}</span></div>
+              </div>
+          </div>
+          <div>
+            <h2 className="text-lg font-semibold text-black mb-2">Description:</h2>
+            <p className="text-gray-700 text-sm">
+              {product.description}
+            </p>
+          </div>
+          <div>
+            <h2 className="text-lg font-semibold text-black mb-2">Shipping Information:</h2>
+            <p className="text-gray-700 text-sm">
+              {product.shippingInformation}
+            </p>
           </div>
         </div>
 
